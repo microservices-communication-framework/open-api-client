@@ -26,6 +26,14 @@
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:git://github.com/microservices-communication-framework/open-api-client.git
+        </connection>
+        <developerConnection>scm:git:ssh://github.com:microservices-communication-framework/open-api-client.git
+        </developerConnection>
+        <url>http://github.com/microservices-communication-framework/open-api-client/tree/main</url>
+    </scm>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
