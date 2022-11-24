@@ -1,6 +1,6 @@
-package com.mca.openApi.exception;
+package com.mca.openapi.exception;
 
-public class OpenApiLoadException extends RuntimeException{
+public class OpenApiLoadException extends RuntimeException {
 
     private String openApiLocation;
 
@@ -10,6 +10,6 @@ public class OpenApiLoadException extends RuntimeException{
 
     @Override
     public String getMessage() {
-        return "Unable to load openApi sepcification: "+this.openApiLocation;
+        return "Unable to load openApi specification: " + this.openApiLocation;
     }
 }
