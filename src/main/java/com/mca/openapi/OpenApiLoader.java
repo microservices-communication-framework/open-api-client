@@ -1,8 +1,7 @@
-package com.mca.openApi;
+package com.mca.openapi;
 
 
-
-import com.mca.openApi.exception.OpenApiLoadException;
+import com.mca.openapi.exception.OpenApiLoadException;
 import io.swagger.oas.models.OpenAPI;
 import io.swagger.parser.models.ParseOptions;
 import io.swagger.parser.v3.OpenAPIV3Parser;
@@ -14,10 +13,10 @@ import java.util.ArrayList;
 public class OpenApiLoader {
 
     public OpenAPI loadSpecFile(String url) {
-        OpenAPI openAPI = new OpenAPIV3Parser().readLocation(url, new ArrayList<>(),new ParseOptions()).getOpenAPI();
-        if(openAPI == null) {
+        OpenAPI openApi = new OpenAPIV3Parser().readLocation(url, new ArrayList<>(), new ParseOptions()).getOpenAPI();
+        if (openApi == null) {
             throw new OpenApiLoadException(url);
         }
-        return openAPI;
+        return openApi;
     }
 }

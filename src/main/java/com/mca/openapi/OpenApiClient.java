@@ -1,4 +1,4 @@
-package com.mca.openApi;
+package com.mca.openapi;
 
 import io.swagger.oas.models.OpenAPI;
 import io.swagger.oas.models.PathItem;
@@ -13,24 +13,28 @@ import java.util.Map;
 
 public class OpenApiClient {
 
-    private OpenAPI openAPISpec;
+    private OpenAPI openApiSpec;
 
     private String serviceName;
 
     private WebClient webClient;
 
-    public OpenApiClient(WebClient webClient,String serviceName, OpenAPI openAPISpec) {
+    public OpenApiClient(WebClient webClient, String serviceName, OpenAPI openApiSpec) {
         this.webClient = webClient;
-        this.openAPISpec = openAPISpec;
+        this.openApiSpec = openApiSpec;
         this.serviceName = serviceName;
     }
 
-    public Object call(PathItem.HttpMethod httpMethod, String pathName, Map<String, Object> requestParams, Map<String, Object> pathVariables, Object requestBody) {
+    public Object call(PathItem.HttpMethod httpMethod,
+                       String pathName,
+                       Map<String, Object> requestParams,
+                       Map<String, Object> pathVariables,
+                       Object requestBody) {
 
         WebClient.RequestBodySpec requestBodySpec = this.webClient
                 .method(HttpMethod.resolve(httpMethod.name()))
                 .uri(uriBuilder -> {
-                    URI uri = URI.create(this.openAPISpec.getServers().get(0).getUrl());
+                    URI uri = URI.create(this.openApiSpec.getServers().get(0).getUrl());
                     uriBuilder = uriBuilder
                             .scheme(uri.getScheme())
                             .host(uri.getHost())
@@ -50,7 +54,9 @@ public class OpenApiClient {
             requestBodySpec.bodyValue(requestBody);
         }
 
-        requestBodySpec.attributes(ServerOAuth2AuthorizedClientExchangeFilterFunction.clientRegistrationId(this.serviceName));
+        requestBodySpec.attributes(
+                ServerOAuth2AuthorizedClientExchangeFilterFunction.clientRegistrationId(this.serviceName)
+        );
         WebClient.ResponseSpec responseSpec = requestBodySpec.retrieve();
 
         return responseSpec.bodyToMono(String.class).block();
