@@ -5,7 +5,7 @@
 
     <artifactId>open-api-client</artifactId>
     <groupId>io.github.ahmedriahi</groupId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <modelVersion>4.0.0</modelVersion>
@@ -25,6 +25,14 @@
             <email>contact@ahmedriahi.net</email>
         </developer>
     </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/microservices-communication-framework/open-api-client.git
+        </connection>
+        <developerConnection>scm:git:ssh://github.com:microservices-communication-framework/open-api-client.git
+        </developerConnection>
+        <url>http://github.com/microservices-communication-framework/open-api-client/tree/main</url>
+    </scm>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
